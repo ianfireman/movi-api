@@ -20,12 +20,14 @@
     "lodash": "4.16.6",
     "mongoose": "4.5.8",
     "morgan": "1.7.0",
+    "mqtt": "^2.14.0",
     "passport": "0.3.2",
     "passport-local": "1.0.0",
     "passport-local-mongoose": "4.0.0",
     "request": "2.78.0",
     "semver": "5.3.0",
-    "sendgrid": "4.8.2"
+    "sendgrid": "4.8.2",
+    "socket.io": "^2.0.4"
   },
   "devDependencies": {
     "chai": "^3.5.0",

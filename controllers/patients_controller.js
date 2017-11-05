@@ -2,8 +2,11 @@ const Patient = require('../models/Patient');
 const passport = require('passport');
 const Movement = require('../models/Movement');
 const Verify = require('../helpers/verify_helper');
+const mqtt = require('mqtt');
 const perform = require('../helpers/response_helper');
 const _ = require('lodash');
+const publisher = mqtt.connect('mqtt://10.0.98.28:1883')
+
 
 exports.index = (req, res, next) => {
   let userId = req.decoded.user_id;
@@ -87,6 +90,24 @@ exports.getMovements = (req, res, next) => {
     if (err) return next(err);
 
     res.json(movements);
+  });
+};
+
+exports.startMovement = (req, res, next) => {
+  Movement.findById(req.params.movementId).exec(function (err, movement) {
+    if (err) return next(err);
+
+    publisher.publish('movi/action', "start");
+    res.json(movement);
+  });
+};
+
+exports.stopMovement = (req, res, next) => {
+  Movement.findById(req.params.movementId).exec(function (err, movement) {
+    if (err) return next(err);
+    
+    publisher.publish('movi/action', "stop");
+    res.json(movement);
   });
 };
 

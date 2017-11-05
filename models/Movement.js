@@ -13,6 +13,17 @@ var Movement = new Schema({
   },
   defaultRecord: {
       type: Array
+  },
+  time: {
+    type: Number
+  },
+  max: {
+    type: Number,
+    default: 0
+  },
+  min: {
+    type: Number,
+    default: 0
   }
 },
 {
