@@ -1,0 +1,6 @@
+{
+  "mongoUrl": "mongodb://movi:Flaphoajvedvoo2@ds153609.mlab.com:53609/movi",
+  "userSecretKey": "d9asK-Jn2qj-0dK2M-5Lkw1",
+  "simpleSecret": "d9asK",
+  "movi_url": "http://movi-api.herokuapp.com"
+}
